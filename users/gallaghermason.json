@@ -1,0 +1,45 @@
+{
+    "_id": "5a0f4806c6e5e86dcbf5d351",
+    "index": 0,
+    "guid": "b4f9e010-c998-46b3-8387-4fdbb931c631",
+    "isActive": false,
+    "balance": "$2,601.67",
+    "picture": "http://placehold.it/32x32",
+    "age": 29,
+    "eyeColor": "green",
+    "name": "Gallagher Mason",
+    "gender": "male",
+    "company": "ILLUMITY",
+    "email": "gallaghermason@illumity.com",
+    "phone": "+1 (869) 492-3063",
+    "address": "365 Bay Parkway, Brownsville, Alaska, 9417",
+    "about": "Eiusmod eiusmod pariatur exercitation id sunt ullamco esse sint exercitation nulla elit nostrud ad. Ullamco magna consectetur ex duis cillum proident. Voluptate excepteur nostrud enim dolor magna proident consectetur esse elit aute elit laboris. Dolor nostrud qui adipisicing exercitation nisi minim proident esse occaecat. Anim cupidatat fugiat laborum reprehenderit sint.\r\n",
+    "registered": "2015-08-23T09:16:52 -03:00",
+    "latitude": 63.39666,
+    "longitude": -17.708224,
+    "tags": [
+      "aute",
+      "consectetur",
+      "consequat",
+      "culpa",
+      "exercitation",
+      "ut",
+      "ex"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Hale Duran"
+      },
+      {
+        "id": 1,
+        "name": "Cochran Shaw"
+      },
+      {
+        "id": 2,
+        "name": "Mcmillan Curtis"
+      }
+    ],
+    "greeting": "Hello, Gallagher Mason! You have 10 unread messages.",
+    "favoriteFruit": "strawberry"
+  }

@@ -1,0 +1,45 @@
+{
+    "_id": "5a0f480681347a3299370a35",
+    "index": 3,
+    "guid": "4091478c-b8e1-41cf-813a-1f076ac2fd4c",
+    "isActive": true,
+    "balance": "$3,736.25",
+    "picture": "http://placehold.it/32x32",
+    "age": 26,
+    "eyeColor": "brown",
+    "name": "Marshall Rutledge",
+    "gender": "male",
+    "company": "DOGSPA",
+    "email": "marshallrutledge@dogspa.com",
+    "phone": "+1 (874) 485-2704",
+    "address": "992 Dank Court, Bethany, South Dakota, 2417",
+    "about": "Nostrud cillum ullamco duis fugiat deserunt. In consequat est voluptate exercitation sit nostrud amet. Et voluptate ullamco duis qui consequat aliqua amet ad dolor ea. Occaecat dolore minim reprehenderit Lorem. Ipsum voluptate et ipsum labore fugiat id qui dolor ut elit ad. Pariatur ullamco aliqua Lorem ex officia dolore irure non. Aliqua velit irure enim incididunt culpa excepteur proident commodo incididunt eu ut eu.\r\n",
+    "registered": "2014-08-29T05:37:41 -03:00",
+    "latitude": 39.865427,
+    "longitude": -18.489987,
+    "tags": [
+      "cillum",
+      "officia",
+      "esse",
+      "labore",
+      "ex",
+      "occaecat",
+      "esse"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "England Miles"
+      },
+      {
+        "id": 1,
+        "name": "Benita Hobbs"
+      },
+      {
+        "id": 2,
+        "name": "Sophia Mendoza"
+      }
+    ],
+    "greeting": "Hello, Marshall Rutledge! You have 1 unread messages.",
+    "favoriteFruit": "strawberry"
+  }

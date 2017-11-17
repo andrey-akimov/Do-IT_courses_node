@@ -1,0 +1,45 @@
+{
+    "_id": "5a0f480622c0c8a02259f474",
+    "index": 1,
+    "guid": "462b0e9b-517e-4828-8d4e-54fde72bcfc4",
+    "isActive": false,
+    "balance": "$1,172.64",
+    "picture": "http://placehold.it/32x32",
+    "age": 29,
+    "eyeColor": "green",
+    "name": "Swanson Chen",
+    "gender": "male",
+    "company": "BUGSALL",
+    "email": "swansonchen@bugsall.com",
+    "phone": "+1 (941) 593-2027",
+    "address": "563 Greenpoint Avenue, Faxon, Marshall Islands, 3877",
+    "about": "Aute nisi elit anim occaecat aliqua magna. Ipsum aliquip deserunt dolor fugiat veniam ea duis tempor amet nulla nisi. Magna et magna est laboris nostrud minim pariatur qui nisi aute elit excepteur. Nostrud occaecat eiusmod elit duis aute enim qui. Incididunt anim ut mollit dolore. Consectetur in amet velit est duis consequat sunt tempor ullamco. Et id proident tempor sunt laboris tempor id aute in tempor esse mollit adipisicing.\r\n",
+    "registered": "2016-11-23T07:10:50 -02:00",
+    "latitude": 81.871544,
+    "longitude": -132.246963,
+    "tags": [
+      "mollit",
+      "anim",
+      "veniam",
+      "exercitation",
+      "fugiat",
+      "proident",
+      "fugiat"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Carlson Becker"
+      },
+      {
+        "id": 1,
+        "name": "Jodi Daugherty"
+      },
+      {
+        "id": 2,
+        "name": "Flowers Vinson"
+      }
+    ],
+    "greeting": "Hello, Swanson Chen! You have 9 unread messages.",
+    "favoriteFruit": "apple"
+  }

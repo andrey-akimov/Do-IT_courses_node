@@ -1,0 +1,45 @@
+{
+    "_id": "5a0f480603064076698075bd",
+    "index": 4,
+    "guid": "3bee4013-a1b9-4049-a480-9e15a30a3a2f",
+    "isActive": true,
+    "balance": "$3,461.78",
+    "picture": "http://placehold.it/32x32",
+    "age": 35,
+    "eyeColor": "brown",
+    "name": "Rosella Foster",
+    "gender": "female",
+    "company": "CHORIZON",
+    "email": "rosellafoster@chorizon.com",
+    "phone": "+1 (838) 417-3915",
+    "address": "172 Lincoln Place, Bison, Guam, 7334",
+    "about": "Ipsum ullamco ea aliquip Lorem dolor sunt in aliqua minim incididunt cillum esse sunt dolore. Sit nulla labore culpa enim magna pariatur proident. Commodo anim Lorem adipisicing veniam ipsum pariatur ullamco nostrud cupidatat cillum.\r\n",
+    "registered": "2015-05-22T11:53:59 -03:00",
+    "latitude": 26.730172,
+    "longitude": 60.520832,
+    "tags": [
+      "exercitation",
+      "ullamco",
+      "cillum",
+      "reprehenderit",
+      "ea",
+      "qui",
+      "nulla"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Russell Mercado"
+      },
+      {
+        "id": 1,
+        "name": "Bray Coffey"
+      },
+      {
+        "id": 2,
+        "name": "Mcconnell Reese"
+      }
+    ],
+    "greeting": "Hello, Rosella Foster! You have 8 unread messages.",
+    "favoriteFruit": "strawberry"
+  }
