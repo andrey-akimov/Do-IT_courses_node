@@ -28,13 +28,14 @@ function saveUser(username, data) {
 }
 
 function verifyUser(req, res, next) {
-    let fp = getUserFilePath(req.params.username);
+    let username = req.params.username;
+    let fp = getUserFilePath(username);
 
     fs.exists(fp, yes => {
         if (yes) {
             next()
         } else {
-            res.redirect('/error/' + req.params.username)
+            res.redirect('/error/' + username)
         }
     })
 }

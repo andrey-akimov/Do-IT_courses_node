@@ -1,45 +1,6 @@
 {
-    "_id": "5a0f48065872ba36d027fa27",
-    "index": 2,
-    "guid": "27424d28-02fe-4b6a-8419-c5183e4b6d80",
-    "isActive": true,
-    "balance": "$2,488.68",
-    "picture": "http://placehold.it/32x32",
-    "age": 37,
-    "eyeColor": "blue",
-    "name": "Dillon Adams",
-    "gender": "male",
-    "company": "ANIVET",
-    "email": "dillonadams@anivet.com",
-    "phone": "+1 (904) 565-2095",
-    "address": "967 Mill Road, Cochranville, Connecticut, 2374",
-    "about": "Cillum id minim aliqua reprehenderit culpa sit nisi esse pariatur tempor irure et amet. Pariatur quis tempor ut do. Et sint Lorem esse culpa aute reprehenderit laboris aliquip est.\r\n",
-    "registered": "2016-09-23T02:43:10 -03:00",
-    "latitude": 77.899711,
-    "longitude": -143.447207,
-    "tags": [
-      "culpa",
-      "culpa",
-      "anim",
-      "quis",
-      "ipsum",
-      "voluptate",
-      "sit"
-    ],
-    "friends": [
-      {
-        "id": 0,
-        "name": "Cole Hess"
-      },
-      {
-        "id": 1,
-        "name": "Rasmussen Fuller"
-      },
-      {
-        "id": 2,
-        "name": "Augusta Copeland"
-      }
-    ],
-    "greeting": "Hello, Dillon Adams! You have 9 unread messages.",
-    "fruit": "apple"
-  }
+  "name": "Dillon Adams",
+  "age": "27",
+  "address": "967 Mill Road, Cochranville, Connecticut, 2374",
+  "fruit": "apple"
+}
