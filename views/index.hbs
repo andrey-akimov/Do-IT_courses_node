@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>User Index</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
   <h1>Handlebars</h1>
   <ul>
     {{#each users as |user|}}
-    <li><a href="/{{user.nickname}}">{{user.nickname}}</a></li>
+    <li><a href="/{{user.nickname}}">{{user.name}}</a></li>
     {{/each}}
   </ul>
   
