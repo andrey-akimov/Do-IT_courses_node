@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>Id: {{data._id}}</p>
+    <p>Index: {{data.index}}</p>
+    <p>Guid: {{data.guid}}</p>
+    <p>Is active: {{data.isActive}}</p>
+    <p>Balance: {{data.balance}}</p>
+    <p>Picture:
+        <img style="vertical-align: middle;" src="{{data.picture}}" alt="picture">
+    </p>
+    <p>Age: {{data.age}}</p>
+    <p>Eye color: {{data.eyeColor}}</p>
+    <p>Name: {{data.name}}</p>
+    <p>Gender: {{data.gender}}</p>
+    <p>Company: {{data.company}}</p>
+    <p>Email: {{data.email}}</p>
+    <p>Phone: {{data.phone}}</p>
+    <p>Address: {{data.address}}</p>
+    <p>About: {{data.about}}</p>
+    <p>Registered: {{data.registered}}</p>
+    <p>Latitude: {{data.latitude}}</p>
+    <p>Longitude: {{data.longitude}}</p>
+    <p>Tags: {{data.tags}}</p>
+    <p>Friends: {{#each data.friends as |friend|}}
+        <br> id: {{friend.id}}, name: {{friend.name}} {{/each}}
+    </p>
+    <p>Greeting: {{data.greeting}}</p>
+    <p>Favorite fruit: {{data.favoriteFruit}}</p>
+</body>
+
+</html>

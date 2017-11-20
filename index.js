@@ -21,10 +21,11 @@ app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => res.render('index', { users }));
 app.get('/favicon.ico', (req, res) => res.status(204));
+app.get('/robots.txt', (req, res) => res.status(204));
 app.get('/:username', (req, res) => {
     fs.readFile(`./users/${req.params.username}.json`, { encoding: 'utf8' }, (err, data) => {
         if (err) throw err;
-        res.send(data);
+        res.render('user', { data: JSON.parse(data) });
     });
 });
 
