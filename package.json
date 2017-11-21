@@ -15,7 +15,8 @@
     "express": "^4.13.1",
     "handlebars": "^3.0.3",
     "jade": "^1.11.0",
-    "lodash": "^3.10.0"
+    "lodash": "^3.10.0",
+    "body-parser": "latest"
   },
   "devDependencies": {
     "nodemon": "^1.3.7"

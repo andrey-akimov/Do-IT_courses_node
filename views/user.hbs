@@ -2,40 +2,89 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>User Index</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
 
-    <p>Id: {{data._id}}</p>
-    <p>Index: {{data.index}}</p>
-    <p>Guid: {{data.guid}}</p>
-    <p>Is active: {{data.isActive}}</p>
-    <p>Balance: {{data.balance}}</p>
-    <p>Picture:
-        <img style="vertical-align: middle;" src="{{data.picture}}" alt="picture">
+  <div class="nav">
+    <a href="/">Back to Users List</a>
+  </div>
+
+  <div class="pic">
+    <p>
+      <a href="#" onclick="edit()">Edit</a>
+      <a href="#" onclick="del()">Delete</a>
     </p>
-    <p>Age: {{data.age}}</p>
-    <p>Eye color: {{data.eyeColor}}</p>
-    <p>Name: {{data.name}}</p>
-    <p>Gender: {{data.gender}}</p>
-    <p>Company: {{data.company}}</p>
-    <p>Email: {{data.email}}</p>
-    <p>Phone: {{data.phone}}</p>
-    <p>Address: {{data.address}}</p>
-    <p>About: {{data.about}}</p>
-    <p>Registered: {{data.registered}}</p>
-    <p>Latitude: {{data.latitude}}</p>
-    <p>Longitude: {{data.longitude}}</p>
-    <p>Tags: {{data.tags}}</p>
-    <p>Friends: {{#each data.friends as |friend|}}
-        <br> id: {{friend.id}}, name: {{friend.name}} {{/each}}
-    </p>
-    <p>Greeting: {{data.greeting}}</p>
-    <p>Favorite fruit: {{data.favoriteFruit}}</p>
+  </div>
+
+  <h1>{{user.name}}</h1>
+  <dl>
+    <dt>Name</dt>
+    <dd class="view">{{user.name}}</dd>
+    <dd class="edit">
+      <input id="name" type="text" value="{{user.name}}">
+    </dd>
+    <br>
+    <dt>Age</dt>
+    <dd class="view">{{user.age}}</dd>
+    <dd class="edit">
+      <input id="age" type="number" value="{{user.age}}">
+    </dd>
+    <br>
+    <dt>Address</dt>
+    <dd class="view">{{user.address}}</dd>
+    <dd class="edit">
+      <input id="address" type="text" value="{{user.address}}">
+    </dd>
+    <br>
+    <dt>Favorite fruit</dt>
+    <dd class="view">{{user.fruit}}</dd>
+    <dd class="edit">
+      <input id="fruit" type="text" value="{{user.fruit}}">
+    </dd>
+    <br>
+    <dt></dt>
+    <dd class="edit">
+      <input type="submit" value="Save" onclick="save()">
+      <input type="submit" value="Cancel" onclick="cancel()">
+    </dd>
+  </dl>
+
+  <script>
+    function edit() {
+      [...document.querySelectorAll('.view')].forEach(el => el.style.display = 'none');
+      [...document.querySelectorAll('.edit')].forEach(el => el.style.display = '');
+    }
+
+    function cancel() {
+      [...document.querySelectorAll('.view')].forEach(el => el.style.display = '');
+      [...document.querySelectorAll('.edit')].forEach(el => el.style.display = 'none');
+    }
+
+    function save() {
+      fetch('/{{user.nickname}}', {
+        method: 'put',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: document.querySelectorAll('#name')[0].value,
+          age: document.querySelectorAll('#age')[0].value,
+          address: document.querySelectorAll('#address')[0].value,
+          fruit: document.querySelectorAll('#fruit')[0].value
+        })
+      }).then((response) => {
+        cancel();
+        location.reload();
+      })
+    }
+
+    cancel()
+  </script>
+
 </body>
 
 </html>
