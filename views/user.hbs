@@ -82,6 +82,15 @@
       })
     }
 
+    function del() {
+      fetch('/{{user.nickname}}', {
+        method: 'delete',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(() => window.location.href = 'http://localhost:3000/')
+    }
+
     cancel()
   </script>
 
