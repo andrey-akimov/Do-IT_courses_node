@@ -13,33 +13,26 @@
     "email": "marshallrutledge@dogspa.com",
     "phone": "+1 (874) 485-2704",
     "address": "992 Dank Court, Bethany, South Dakota, 2417",
-    "about": "Nostrud cillum ullamco duis fugiat deserunt. In consequat est voluptate exercitation sit nostrud amet. Et voluptate ullamco duis qui consequat aliqua amet ad dolor ea. Occaecat dolore minim reprehenderit Lorem. Ipsum voluptate et ipsum labore fugiat id qui dolor ut elit ad. Pariatur ullamco aliqua Lorem ex officia dolore irure non. Aliqua velit irure enim incididunt culpa excepteur proident commodo incididunt eu ut eu.\r\n",
+    "about":
+        "Nostrud cillum ullamco duis fugiat deserunt. In consequat est voluptate exercitation sit nostrud amet. Et voluptate ullamco duis qui consequat aliqua amet ad dolor ea. Occaecat dolore minim reprehenderit Lorem. Ipsum voluptate et ipsum labore fugiat id qui dolor ut elit ad. Pariatur ullamco aliqua Lorem ex officia dolore irure non. Aliqua velit irure enim incididunt culpa excepteur proident commodo incididunt eu ut eu.\r\n",
     "registered": "2014-08-29T05:37:41 -03:00",
     "latitude": 39.865427,
     "longitude": -18.489987,
-    "tags": [
-      "cillum",
-      "officia",
-      "esse",
-      "labore",
-      "ex",
-      "occaecat",
-      "esse"
-    ],
+    "tags": ["cillum", "officia", "esse", "labore", "ex", "occaecat", "esse"],
     "friends": [
-      {
-        "id": 0,
-        "name": "England Miles"
-      },
-      {
-        "id": 1,
-        "name": "Benita Hobbs"
-      },
-      {
-        "id": 2,
-        "name": "Sophia Mendoza"
-      }
+        {
+            "id": 0,
+            "name": "England Miles"
+        },
+        {
+            "id": 1,
+            "name": "Benita Hobbs"
+        },
+        {
+            "id": 2,
+            "name": "Sophia Mendoza"
+        }
     ],
     "greeting": "Hello, Marshall Rutledge! You have 1 unread messages.",
     "fruit": "strawberry"
-  }
+}

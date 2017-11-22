@@ -18,6 +18,79 @@
     {{/each}}
   </ul>
 
+  {{!-- new user form --}}
+  <h2>Add new User</h2>
+  <dl>
+    <dt>Name</dt>
+    <dd class="view"></dd>
+    <dd class="edit">
+      <input id="name" type="text" value="">
+    </dd>
+    <br>
+    <dt>Age</dt>
+    <dd class="view"></dd>
+    <dd class="edit">
+      <input id="age" type="number" value="">
+    </dd>
+    <br>
+    <dt>Address</dt>
+    <dd class="view"></dd>
+    <dd class="edit">
+      <input id="address" type="text" value="">
+    </dd>
+    <br>
+    <dt>Favorite fruit</dt>
+    <dd class="view"></dd>
+    <dd class="edit">
+      <input id="fruit" type="text" value="">
+    </dd>
+    <br>
+    <dt></dt>
+    <dd class="edit">
+      <input type="submit" value="Save" onclick="checkForm()">
+    </dd>
+  </dl>
+
+  <script>
+    function edit() {
+      [...document.querySelectorAll('.view')].forEach(el => el.style.display = 'none');
+      [...document.querySelectorAll('.edit')].forEach(el => el.style.display = '');
+    }
+
+    function checkForm() {
+      let allFilled = true;
+      document.querySelectorAll('.edit input[type="text"], .edit input[type="number"]').forEach(el => {
+        if (el.value === '') {
+          allFilled = false;
+          el.focus();
+        }
+      });
+      if (allFilled) {
+        save()
+      }
+    }
+
+    function save() {
+      const user = {
+        name: document.querySelector('#name').value,
+        age: document.querySelector('#age').value,
+        address: document.querySelector('#address').value,
+        fruit: document.querySelector('#fruit').value
+      };
+      fetch('/', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      }).then((response) => {
+        location.reload();
+      })
+      document.querySelectorAll('.edit input[type="text"], .edit input[type="number"]').forEach(el => el.value = '');
+    }
+
+  </script>
+
 </body>
 
 </html>

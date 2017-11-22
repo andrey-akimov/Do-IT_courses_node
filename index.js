@@ -74,6 +74,13 @@ app.get('/:username', verifyUser, function(req, res) {
     res.render('user', { user, address: user.location });
 });
 
+app.post('/', function(req, res) {
+    let fileName = req.body.name.toLowerCase().replace(/\s/gi, '');
+    let fp = getUserFilePath(fileName);
+    fs.writeFileSync(fp, JSON.stringify(req.body, null, 2), { encoding: 'utf8' });
+    res.end();
+});
+
 app.put('/:username', function(req, res) {
     saveUser(req.params.username, req.body);
     res.end();
