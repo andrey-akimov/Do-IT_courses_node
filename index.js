@@ -2,86 +2,68 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-const fs = require('fs');
+const sqlite3 = require('sqlite3').verbose();
 const _ = require('lodash');
 const engines = require('consolidate');
 const bodyParser = require('body-parser');
-
-let users = [];
-
-function getUser(username) {
-    let user = JSON.parse(fs.readFileSync(getUserFilePath(username), {encoding: 'utf8'}));
-    user.nickname = user.name.toLowerCase().replace(/\s/ig, '');
-
-    return user
-}
-
-function getUserFilePath(username) {
-    return `${path.join(__dirname, 'users', username)}.json`
-}
-
-function saveUser(username, data) {
-    let fp = getUserFilePath(username);
-    fs.unlinkSync(fp); // delete the file
-    console.log(data);
-    fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
-}
-
-function verifyUser(req, res, next) {
-    let username = req.params.username;
-    let fp = getUserFilePath(username);
-
-    fs.exists(fp, yes => {
-        if (yes) {
-            next()
-        } else {
-            res.redirect('/error/' + username)
-        }
-    })
-}
 
 app.engine('hbs', engines.handlebars);
 
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
-app.use(express.static('public')); //example of serve static files
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json()); // Body parser use JSON data
+app.use(bodyParser.json());
+
+const db_file = process.env.DB || ':memory:';
+const db = new sqlite3.Database(db_file);
+let db_ready = false;
+
+const sql_create_table =
+    `CREATE TABLE if not exists Users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name VARCHAR(255),
+        age integer,
+        address text,
+        fruit VARCHAR(255)
+    );`;
+
+db.run(sql_create_table, () => db_ready = true);
+
+app.use((req, res, next) => {
+    if (db_ready) {
+        req.db = db;
+
+        return next();
+    }
+
+    res.status(500).send('Database not setup yet!');
+});
 
 app.get('/', (req, res) => {
-    fs.readdir('users', (err, files) => {
-        files = _.filter(files, file => !file.startsWith('.'));
-        users = _.map(files, file => getUser(file.replace(/\.json/ig, '')));
-        res.render('index', {users})
+    const query = 'SELECT * FROM users';
+
+    db.all(query, (err, users = []) => res.render('index', {users}))
+});
+
+app.get('/:id', (req, res) => {
+    const query = 'SELECT * FROM users WHERE id = ?';
+
+    db.get(query, [req.params.id], (err, user) => {
+        if (err) return res.status(404).send('User not found.');
+        res.render('user', {user})
     });
 });
 
-app.get('*.json', (req, res) => res.download('./users/' + req.path));
-app.get('/error/:username', (req, res) => res.status(404).send(`No user named ${req.params.username} found`));
-app.get('/data/:username', (req, res) => {
-    res.header("Content-Type", 'application/json');
-    res.send(JSON.stringify(getUser(req.params.username), null, 4));
-});
+app.put('/:id', (req, res) => {
+    const {name, age, address, fruit} = req.body;
+    const query = 'UPDATE Users SET name = ?, age = ?, address = ?, fruit = ? WHERE id = ?';
 
-app.all('/:username', function(req, res, next) {
-    console.log(req.method, 'for', req.params.username);
-    next()
-});
-
-app.get('/:username', verifyUser, function(req, res) {
-    const user = getUser(req.params.username);
-    res.render('user', {user, address: user.location})
-});
-
-app.put('/:username', function(req, res) {
-    saveUser(req.params.username, req.body);
-    res.end()
-});
-
-app.delete('/:username', function(req, res) {
-    fs.unlinkSync(getUserFilePath(req.params.username)); // delete the file
-    res.sendStatus(200)
+    db.run(query, [name, age, address, fruit, req.params.id], (err) => {
+        if (err) return res.status(500).send(err);
+        res.sendStatus(200)
+    });
 });
 
 const server = app.listen(3000, function() {

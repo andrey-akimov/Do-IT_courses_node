@@ -10,7 +10,9 @@
   <h1>Handlebars</h1>
   <ul>
     {{#each users as |user|}}
-    <li><a href="/{{user.nickname}}">{{user.name}}</a></li>
+    <li><a href="/{{user.id}}">{{user.name}}</a></li>
+    {{else}}
+    <li>There is no users in DB!</li>
     {{/each}}
   </ul>
   
