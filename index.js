@@ -41,17 +41,29 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-    const query = 'SELECT * FROM users';
+    const query = 'SELECT * FROM Users';
 
     db.all(query, (err, users = []) => res.render('index', { users }));
 });
 
 app.get('/:id', (req, res) => {
-    const query = 'SELECT * FROM users WHERE id = ?';
+    const query = 'SELECT * FROM Users WHERE id = ?';
 
     db.get(query, [req.params.id], (err, user) => {
         if (err) return res.status(404).send('User not found.');
         res.render('user', { user });
+    });
+});
+
+app.post('/', (req, res) => {
+    const query = 'INSERT INTO Users (name, age, address, fruit) VALUES (?, ?, ?, ?)';
+    const { name, age, address, fruit } = req.body;
+
+    db.get(query, [name, age, address, fruit], error => {
+        if (error) {
+            console.error(error);
+        }
+        res.end();
     });
 });
 
@@ -62,6 +74,18 @@ app.put('/:id', (req, res) => {
     db.run(query, [name, age, address, fruit, req.params.id], err => {
         if (err) return res.status(500).send(err);
         res.sendStatus(200);
+    });
+});
+
+app.delete('/:id', (req, res) => {
+    const query = 'DELETE FROM Users WHERE id = ?';
+    const id = req.params.id;
+
+    db.get(query, [id], error => {
+        if (error) {
+            console.error(error);
+        }
+        res.end();
     });
 });
 

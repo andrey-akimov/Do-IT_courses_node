@@ -65,7 +65,7 @@
     }
 
     function save() {
-      fetch('/api/v1/{{user.id}}', {
+      fetch('/{{user.id}}', {
         method: 'put',
         headers: {
           'Content-Type': 'application/json'
@@ -80,14 +80,10 @@
         cancel();
         location.reload();
       })
-    }).then((response) => {
-      cancel();
-      location.reload();
-    })
     }
 
     function del() {
-      fetch('/{{user.nickname}}', {
+      fetch('/{{user.id}}', {
         method: 'delete',
         headers: {
           'Content-Type': 'application/json'
